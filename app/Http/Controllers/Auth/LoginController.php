@@ -40,5 +40,8 @@ class LoginController extends Controller
         $this->middleware('auth')->only('logout');
     }
 
-
+    protected function loggedOut(Request $request)
+    {
+        return redirect('/login');
+    }
 }

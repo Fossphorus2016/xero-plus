@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()) {
+        return redirect()->route('dashboard');
+    }
 });
 
 
@@ -13,9 +15,7 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
-
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+});
