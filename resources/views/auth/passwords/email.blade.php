@@ -3,7 +3,10 @@
         <div class="row justify-content-center" style="margin-top: 245px;">
             <div class="col-md-8">
                 <div class="card shadow p-5">
-                    <h1>Reset Password</h1>
+                    <div class="text-center">
+                        <h1>Reset Password</h1>
+                    </div>
+
 
                     <div class="card-body">
                         @if (session('status'))

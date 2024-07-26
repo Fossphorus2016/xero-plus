@@ -59,7 +59,7 @@
                         </button>
                     </div>
 
-                    <a href="/register">Register</a>
+                    <a href="/register">Don't have an account? Register Now</a>
                 </div>
                 <!--end::Input group-->
                 <!--begin::Actions-->
