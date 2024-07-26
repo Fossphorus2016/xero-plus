@@ -1,6 +1,6 @@
 <x-auth-layout>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="margin-top: 245px;">
             <div class="col-md-8">
                 <div class="card shadow p-5">
                     <form method="POST" action="{{ route('password.update') }}">
