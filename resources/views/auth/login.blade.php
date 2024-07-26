@@ -1,9 +1,7 @@
 <x-auth-layout>
     <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
         <!--begin::Logo-->
-        <a href="#" class="mb-12">
-            <img alt="Logo" src="{{ asset('assets/logo.png') }}" class="h-100 w-100 mt-2" />
-        </a>
+
         <!--end::Logo-->
         <!--begin::Wrapper-->
         <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
@@ -12,7 +10,7 @@
                 <!--begin::Heading--> @csrf
                 <div class="text-center mb-10">
                     <!--begin::Title-->
-                    <h1 class="text-dark mb-3">Sign In to Quadri CMS</h1>
+                    <h1 class="text-dark mb-3">Sign In to Xero Plus</h1>
                     <!--end::Title-->
                 </div>
                 <!--begin::Heading-->
@@ -38,6 +36,11 @@
                         <!--begin::Label-->
                         <label for="password" class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
                         <!--end::Label-->
+                        @if (Route::has('password.request'))
+                            <a class="link-primary fs-6 fw-bolder" href="{{ route('password.request') }}">
+                                {{ __('Forgot Your Password?') }}
+                            </a>
+                        @endif
                     </div>
                     <!--end::Wrapper-->
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
@@ -50,11 +53,11 @@
                     @enderror
                 </div>
                 <div class="fv-row">
-                   <div class="mb-4">
-                    <button type="submit" class="btn btn-primary w-100 mb-">
-                        {{ __('Login') }}
-                    </button>
-                   </div>
+                    <div class="mb-4">
+                        <button type="submit" class="btn btn-primary w-100 mb-">
+                            {{ __('Login') }}
+                        </button>
+                    </div>
 
                     <a href="/register">Register</a>
                 </div>

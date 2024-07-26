@@ -1,36 +1,10 @@
 <x-admin.layouts>
     <x-notification.notifications />
 
-    @section('title', 'Contact Form')
+    @section('title', 'Dashboard')
 
 
-    <div class="container p-5">
-        <h2 class="pb-5">Contact Details</h2>
-        <div class=" p-5 card shadow">
-            <div class="d-flex align-content-center justify-content-end">
-
-                <label style="height: 19px " class="mt-3 me-5">
-                    Search :
-                </label>
-
-                <input type="text" id="tableSearch" class="form-control" style="width: 200px;">
-            </div>
-            <table
-                class="table table-row-bordered table-row-gray-600 table-striped table-hover gy-5 rounded dataTable "
-                id="table">
-                <thead>
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>EMAIL</th>
-                    <th>PHONE</th>
-                    <th>SUBJECT</th>
-                    <th>MESSAGE</th>
-                    <th>ACTION</th>
-                </thead>
-
-            </table>
-        </div>
-    </div>
+    
 
 </x-admin.layouts>
 

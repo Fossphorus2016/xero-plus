@@ -3,7 +3,7 @@
 
 <head>
     <base href="{{ url('/') }}">
-    <title>Quadri CMS</title>
+    <title>Xero Plus</title>
     <meta charset="utf-8" />
 
     <link rel="shortcut icon" href="{{ asset('admin_assets/favicon.png') }}" />
