@@ -2,8 +2,9 @@
     <!--begin::Brand-->
     <div class="header-brand">
         <!--begin::Logo-->
-        <a href="{{route('contact')}}">
-            <img alt="Logo" src="{{asset('assets/logo/logo_green.png')}}" class="w-100 h-50px">
+        <a href="{{route('dashboard')}}">
+            <h1>Xero-Plus</h1>
+            {{-- <img alt="Logo" src="{{asset('assets/logo/logo_green.png')}}" class="w-100 h-50px"> --}}
         </a>
 
         <style>

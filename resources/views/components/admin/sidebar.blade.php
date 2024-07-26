@@ -16,8 +16,6 @@
             <!--begin::Menu-->
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary     menu-arrow-gray-500"
                 id="#kt_aside_menu" data-kt-menu="true">
-
-
                 <div class="menu-item">
                     <a class="menu-link gap-3 {{ Route::is('dashboard') ? 'active' : '' }}"
                         href="{{ route('dashboard') }}">
@@ -27,12 +25,6 @@
                         <span class="menu-title text-white">Contact Details</span>
                     </a>
                 </div>
-
-                
-
-
-
-
             </div>
             <!--end:Menu sub-->
         </div>
@@ -40,8 +32,4 @@
         <!--end::Footer-->
     </div>
 </div>
-    <script>
-        $(document).ready(function() {
-            // $('.menu-sub-accordion').hide()
-        })
-    </script>
+
