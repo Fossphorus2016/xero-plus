@@ -10,4 +10,8 @@ class AdminController extends Controller
 
         return view('admin.dashboard');
     }
+
+    public function get_settings(){
+        return view('admin.setting');
+    }
 }

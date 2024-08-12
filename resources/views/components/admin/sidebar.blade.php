@@ -16,15 +16,24 @@
             <!--begin::Menu-->
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary     menu-arrow-gray-500"
                 id="#kt_aside_menu" data-kt-menu="true">
-                {{-- <div class="menu-item">
+                <div class="menu-item">
                     <a class="menu-link gap-3 {{ Route::is('dashboard') ? 'active' : '' }}"
                         href="{{ route('dashboard') }}">
                         <span class="menu-bullet">
-                            <i class="bi bi-person-lines-fill fs-3 text-white"></i>
+
                         </span>
-                        <span class="menu-title text-white">Contact Details</span>
+                        <span class="menu-title text-white">Dashboard</span>
                     </a>
-                </div> --}}
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link gap-3 {{ Route::is('settings') ? 'active' : '' }}"
+                        href="{{ route('settings') }}">
+                        <span class="menu-bullet">
+
+                        </span>
+                        <span class="menu-title text-white">Settings</span>
+                    </a>
+                </div>
             </div>
             <!--end:Menu sub-->
         </div>

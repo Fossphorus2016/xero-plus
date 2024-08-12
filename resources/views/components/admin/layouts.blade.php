@@ -2,9 +2,9 @@
 
 <html lang="en" data-bs-theme-mode="light">
 <!--begin::Head-->
-
+<x-notification.notifications />
 <head>
-    <title>Admin | @yield('title')</title>
+    <title>Admin | {{$title ?? ''}}</title>
 
     <link rel="shortcut icon" href="/metronic8/demo1/assets/media/logos/favicon.ico" />
 
