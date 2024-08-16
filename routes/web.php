@@ -32,4 +32,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/contact', [ContactController::class, 'contact'])->name('contact');
     Route::get('/admin/customer', [ContactController::class, 'customer'])->name('customer');
     Route::get('/admin/supplier', [ContactController::class, 'supplier'])->name('supplier');
+    Route::get('/admin/add-contact', [ContactController::class, 'add_contacts'])->name('add.contacts');
+    Route::get('/admin/import-contacts', [ContactController::class, 'import_contacts'])->name('import.contacts');
 });

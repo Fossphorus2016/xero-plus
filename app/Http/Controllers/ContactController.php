@@ -15,4 +15,12 @@ class ContactController extends Controller
     public function supplier(){
         return view('admin.contacts.suppliers');
     }
+
+    public function add_contacts(){
+        return view('admin.contacts.add_contacts');
+    }
+
+    public function import_contacts(){
+        return view('admin.contacts.import_contacts');
+    }
 }
