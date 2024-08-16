@@ -50574,3 +50574,28 @@ body {
     background-color: transparent;
     border: none;
 }
+
+.searchNameInp{
+    position: relative;
+}
+
+.searchSuggestion{
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    border:  1px solid lightgray;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    display: none;
+
+}
+
+.searchSugRow
+{
+    padding: 8px;
+    border-bottom: 1px solid lightgray;
+}
+.searchSugRow:last-child{
+    border-bottom: 0;
+}
