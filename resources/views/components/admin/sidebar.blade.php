@@ -37,49 +37,122 @@
 
 
                 <div data-kt-menu-trigger="click"
-                class="menu-item menu-accordion {{ Route::is('contact','customer','supplier') ? 'hover show' : '' }}">
-                <span class="menu-link {{ Route::is('contact','customer','supplier') ? 'active' : '' }}">
-                    <span class="menu-icon">
-                        <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
-                        <i class="bi bi-person-rolodex fs-2"></i>
-                        <!--end::Svg Icon-->
+                    class="menu-item menu-accordion {{ Route::is('contact', 'customer', 'supplier') ? 'hover show' : '' }}">
+                    <span class="menu-link {{ Route::is('contact', 'customer', 'supplier') ? 'active' : '' }}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+                            <i class="bi bi-person-rolodex fs-2"></i>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Contacts</span>
+                        <span class="menu-arrow"></span>
                     </span>
-                    <span class="menu-title">Contacts</span>
-                    <span class="menu-arrow"></span>
-                </span>
-                <div class="menu-sub menu-sub-accordion " kt-hidden-height="312" style="">
-                    <div class="menu-item">
-                        <a class="menu-link " href="{{route('contact')}}">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span
-                                class="menu-title {{ Route::is('contact') ? 'text-dark ' : '' }}">Contact
-                            </span>
-                        </a>
+                    <div class="menu-sub menu-sub-accordion " kt-hidden-height="312" style="">
+                        <div class="menu-item">
+                            <a class="menu-link " href="{{ route('contact') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('contact') ? 'text-dark ' : '' }}">Contact
+                                </span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('customer') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('customer') ? 'text-dark' : '' }}">Customer</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('supplier') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('supplier') ? 'text-dark' : '' }}">Supplier</span>
+                            </a>
+                        </div>
+
+
+
+
                     </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="{{route('customer')}}">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title {{ Route::is('customer') ? 'text-dark' : '' }}">Customer</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="{{route('supplier')}}">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title {{ Route::is('supplier') ? 'text-dark' : '' }}">Supplier</span>
-                        </a>
-                    </div>
-
-
-
-
                 </div>
-            </div>
+                <div data-kt-menu-trigger="click"
+                    class="menu-item menu-accordion {{ Route::is('all.project', 'time.entries', 'staff.overview', 'staff.permission', 'staff.rate') ? 'hover show' : '' }}">
+                    <span
+                        class="menu-link {{ Route::is('all.project', 'time.entries', 'staff.overview', 'staff.permission', 'staff.rate') ? 'active' : '' }}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+                            <i class="bi bi-person-workspace fs-2"></i>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Projects</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion " kt-hidden-height="312" style="">
+                        <div class="menu-item">
+                            <a class="menu-link " href="{{ route('all.project') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('all.project') ? 'text-dark ' : '' }}">All
+                                    Projects
+                                </span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('time.entries') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('time.entries') ? 'text-dark' : '' }}">Time
+                                    Entries</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('staff.overview') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('staff.overview') ? 'text-dark' : '' }}">Staff
+                                    Time Over view</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a>
+                                <span class="">
+                                    <span class=""><i class="bi bi-gear fs-2 text-dark"></i> Project
+                                        settings</span>
+                                </span>
+
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('staff.permission') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('staff.permission') ? 'text-dark' : '' }}">Staff
+                                    Permissions</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('staff.rate') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('staff.rate') ? 'text-dark' : '' }}">Staff
+                                    Cost Rate</span>
+                            </a>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
             </div>
             <!--end:Menu sub-->
         </div>
@@ -87,4 +160,3 @@
         <!--end::Footer-->
     </div>
 </div>
-
