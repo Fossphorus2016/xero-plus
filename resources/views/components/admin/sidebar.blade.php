@@ -153,6 +153,99 @@
 
                     </div>
                 </div>
+
+                <div data-kt-menu-trigger="click"
+                    class="menu-item menu-accordion {{ Route::is('bank', 'report', 'advanced', 'profit.loss', 'sales.tax','chart.of.account','fixed.asset') ? 'hover show' : '' }}">
+                    <span
+                        class="menu-link {{ Route::is('bank', 'report', 'advanced', 'profit.loss', 'sales.tax','chart.of.account','fixed.asset') ? 'active' : '' }}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+                            <i class="bi bi-person-square fs-2"></i>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Accounting</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion " kt-hidden-height="312" style="">
+                        <div class="menu-item">
+                            <a class="menu-link " href="{{ route('bank') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('bank') ? 'text-dark ' : '' }}">Bank Accounts
+                                </span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('report') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('report') ? 'text-dark' : '' }}">Reports</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('advanced') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('advanced') ? 'text-dark' : '' }}">Advanced</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a>
+                                <span class="">
+                                    <span class=""><i class="bi bi-star-fill fs-2"></i> Reports</span>
+                                </span>
+
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('profit.loss') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('profit.loss') ? 'text-dark' : '' }}">Profit & Loss</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('sales.tax') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('sales.tax') ? 'text-dark' : '' }}">Sales Tax Report</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a>
+                                <span class="">
+                                    <span class=""><i class="bi bi-star-fill fs-2"></i> Advanced</span>
+                                </span>
+
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('chart.of.account') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('chart.of.account') ? 'text-dark' : '' }}">Chart of account</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('fixed.asset') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('fixed.asset') ? 'text-dark' : '' }}">Fixed assets</span>
+                            </a>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
             </div>
             <!--end:Menu sub-->
         </div>

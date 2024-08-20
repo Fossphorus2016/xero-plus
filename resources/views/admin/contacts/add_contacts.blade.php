@@ -186,16 +186,15 @@
 
                                     <div class="row mb-5">
                                         <div class="col-md-4">
-                                            <select id="contact_type" data-allow-clear="true" multiple="multiple"
-                                                data-control="select2" data-placeholder="Select Category"
-                                                class="form-select">
-                                                <option value="Phone" selected>Phone</option>
+                                            <select id="contact_type" multiple="multiple" class="form-select">
+                                                <option value="Phone">Phone</option>
                                                 <option value="Fax">Fax</option>
                                                 <option value="Mobile">Mobile</option>
                                                 <option value="Direct Dial">Direct Dial</option>
                                             </select>
                                         </div>
                                     </div>
+
 
                                     <div class="row">
                                         <div class="col-md-12 mb-5">
@@ -798,43 +797,49 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="">First Name</label>
-                            <input type="text" class="form-control" id="add_first_name">
-                            <label for="" id="error_add_first_name" class="text-danger fw-bold"
-                                style="display: none">First name is required</label>
+                    <form action="" id="add_person_form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="">First Name</label>
+                                <input type="text" class="form-control" id="add_first_name">
+                                <label for="" id="error_add_first_name" class="text-danger fw-bold"
+                                    style="display: none">First name is required</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Last Name</label>
+                                <input type="text" class="form-control" id="add_last_name">
+                                <label for="" id="error_add_last_name" class="text-danger fw-bold"
+                                    style="display: none">Last name is required</label>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="">Last Name</label>
-                            <input type="text" class="form-control" id="add_last_name">
-                            <label for="" id="error_add_last_name" class="text-danger fw-bold"
-                                style="display: none">Last name is required</label>
+                        <div class="row ">
+                            <div class="col-md-12 mb-5">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" id="add_email"
+                                    placeholder="name@email.com">
+                                <label for="invalid_email" id="invalid_add_email" class="text-danger fw-bold"
+                                    style="display: none;">Invalid
+                                    email</label>
+                                <label for="" id="error_add_email" class="text-danger fw-bold "
+                                    style="display: none">
+                                    Email is required
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-12 mb-5">
-                            <label for="">Email</label>
-                            <input type="email" class="form-control" id="add_email" placeholder="name@email.com">
-                            <label for="invalid_email" id="invalid_add_email" class="text-danger fw-bold"
-                                style="display: none;">Invalid
-                                email</label>
-                            <label for="" id="error_add_email" class="text-danger fw-bold "
-                                style="display: none">
-                                Email is required
-                            </label>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="">
+                            <label for="invalid_exampleCheck1" id="invalid_exampleCheck1" class="text-danger fw-bold"
+                                style="display: none;">You must agree to include this person in emails.</label>
+                            <label class="form-check-label" for="exampleCheck1">Include this person in emails sent to
+                                the contact</label>
                         </div>
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
 
-                        <label class="form-check-label" for="exampleCheck1">Include this person in emails sent to the
-                            contact</label>
-                    </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
 
-                    <button type="button" class="btn btn-primary">Add person</button>
+                    <button type="button" class="btn btn-primary" onclick="add_person_Validate()">Add
+                        person</button>
                 </div>
             </div>
         </div>
@@ -850,7 +855,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="" id="bill_form">
                         <div class="row mb-4">
                             <div class="col-md-12">
                                 <input type="search" name="" id="" class="form-control"
@@ -908,7 +913,9 @@
 
                         <div class="row my-5">
                             <div class="col-md-12" style="border:1px solid black;padding:10px">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="bill_check">
+                                <label for="" id="error_bill_check" class="text-danger fw-bold"
+                                    style="display: none">check this</label>
                                 <label class="form-check-label" for="exampleCheck1">Use as a delivery address</label>
                             </div>
                         </div>
@@ -932,7 +939,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="" id="delivery_form">
                         <div class="row mb-4">
                             <div class="col-md-12">
                                 <input type="search" name="" id="" class="form-control"
@@ -992,7 +999,9 @@
 
                         <div class="row my-5">
                             <div class="col-md-12" style="border:1px solid black;padding:10px">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="delivery_check">
+                                <label for="" id="error_delivery_check" class="text-danger fw-bold"
+                                    style="display: none">Check this</label>
                                 <label class="form-check-label" for="exampleCheck1">Use as a billing address</label>
                             </div>
                         </div>
@@ -1013,10 +1022,46 @@
         html {
             scroll-behavior: smooth;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 
 
     <script>
+        $(document).ready(function() {
+            // Initialize select2 for multiple selection
+            $('#contact_type').select2();
+
+            // Event listener for changes in the dropdown
+            $('#contact_type').on('change', function() {
+                // Hide all divs initially
+                $('#phone_div, #fax_div, #mobile_div, #direct_dial_div').addClass('hidden');
+
+                // Get the selected options
+                var selectedOptions = $(this).val();
+
+                // Loop through the selected options and show the corresponding divs
+                if (selectedOptions.includes('Phone')) {
+                    $('#phone_div').removeClass('hidden');
+                }
+                if (selectedOptions.includes('Fax')) {
+                    $('#fax_div').removeClass('hidden');
+                }
+                if (selectedOptions.includes('Mobile')) {
+                    $('#mobile_div').removeClass('hidden');
+                }
+                if (selectedOptions.includes('Direct Dial')) {
+                    $('#direct_dial_div').removeClass('hidden');
+                }
+            });
+
+            // Trigger change event on page load to show any pre-selected divs
+            $('#contact_type').trigger('change');
+        });
+
+
         $('#mobile_number').on('input', function(event) {
             var inputValue = $(this).val();
 
@@ -1077,6 +1122,181 @@
             // Set the cleaned value back to the input field
             $(this).val(cleanedValue);
         });
+
+        function add_person_Validate() {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if ($("#add_first_name").val() == "") {
+                $("#add_first_name").addClass("is-invalid");
+                $("#error_add_first_name").show();
+                return false;
+            } else {
+                $("#add_first_name").removeClass("is-invalid");
+                $("#error_add_first_name").hide();
+            }
+            if ($("#add_last_name").val() == "") {
+                $("#add_last_name").addClass("is-invalid");
+                $("#error_add_last_name").show();
+                return false;
+            } else {
+                $("#add_last_name").removeClass("is-invalid");
+                $("#error_add_last_name").hide();
+            }
+
+            var email = $("#add_email").val();
+            if ($("#add_email").val() == "") {
+                $("#add_email").addClass("is-invalid");
+                $("#error_add_email").show();
+                return;
+
+            } else {
+                $("#add_email").removeClass("is-invalid");
+                $("#error_add_email").hide();
+                $("#invalid_add_email").hide();
+            }
+
+            if (!emailRegex.test(email)) {
+                $("#add_email").addClass("is-invalid");
+                $("#invalid_add_email").show();
+                return;
+            } else {
+                $("#add_email").removeClass("is-invalid");
+                $("#error_add_email").hide();
+                $("#invalid_add_email").hide();
+            }
+
+            if (!$("#exampleCheck1").is(":checked")) {
+                $("#exampleCheck1").addClass("is-invalid");
+                $("#invalid_exampleCheck1").show();
+                return false;
+            } else {
+                $("#exampleCheck1").removeClass("is-invalid");
+                $("#invalid_exampleCheck1").hide();
+            }
+
+            $("#add_person_form").submit();
+        }
+
+        function bill_Validate() {
+            if ($("#attention").val() == "") {
+                $("#attention").addClass("is-invalid");
+                $("#error_attention").show();
+                return false;
+            } else {
+                $("#attention").removeClass("is-invalid");
+                $("#error_attention").hide();
+            }
+            if ($("#bill_address").val() == "") {
+                $("#bill_address").addClass("is-invalid");
+                $("#error_bill_address").show();
+                return false;
+            } else {
+                $("#bill_address").removeClass("is-invalid");
+                $("#error_bill_address").hide();
+            }
+            if ($("#bill_city").val() == "") {
+                $("#bill_city").addClass("is-invalid");
+                $("#error_bill_city").show();
+                return false;
+            } else {
+                $("#bill_city").removeClass("is-invalid");
+                $("#error_bill_city").hide();
+            }
+            if ($("#bill_state").val() == "") {
+                $("#bill_state").addClass("is-invalid");
+                $("#error_bill_state").show();
+                return false;
+            } else {
+                $("#bill_state").removeClass("is-invalid");
+                $("#error_bill_state").hide();
+            }
+            if ($("#bill_zip").val() == "") {
+                $("#bill_zip").addClass("is-invalid");
+                $("#error_bill_zip").show();
+                return false;
+            } else {
+                $("#bill_zip").removeClass("is-invalid");
+                $("#error_bill_zip").hide();
+            }
+            if ($("#bill_country").val() == "") {
+                $("#bill_country").addClass("is-invalid");
+                $("#error_bill_country").show();
+                return false;
+            } else {
+                $("#bill_country").removeClass("is-invalid");
+                $("#error_bill_country").hide();
+            }
+
+            if (!$("#bill_check").is(":checked")) {
+                $("#bill_check").addClass("is-invalid");
+                $("#invalid_bill_check").show();
+                return false;
+            } else {
+                $("#bill_check").removeClass("is-invalid");
+                $("#invalid_bill_check").hide();
+            }
+        }
+
+        function delivery_Validate() {
+            if ($("#delivery_attention").val() == "") {
+                $("#delivery_attention").addClass("is-invalid");
+                $("#error_delivery_attention").show();
+                return false;
+            } else {
+                $("#delivery_attention").removeClass("is-invalid");
+                $("#error_delivery_attention").hide();
+            }
+            if ($("#delivery_address").val() == "") {
+                $("#delivery_address").addClass("is-invalid");
+                $("#error_delivery_address").show();
+                return false;
+            } else {
+                $("#delivery_address").removeClass("is-invalid");
+                $("#error_delivery_address").hide();
+            }
+            if ($("#delivery_city").val() == "") {
+                $("#delivery_city").addClass("is-invalid");
+                $("#error_delivery_city").show();
+                return false;
+            } else {
+                $("#delivery_city").removeClass("is-invalid");
+                $("#error_delivery_city").hide();
+            }
+            if ($("#delivery_state").val() == "") {
+                $("#delivery_state").addClass("is-invalid");
+                $("#error_delivery_state").show();
+                return false;
+            } else {
+                $("#delivery_state").removeClass("is-invalid");
+                $("#error_delivery_state").hide();
+            }
+            if ($("#delivery_zip").val() == "") {
+                $("#delivery_zip").addClass("is-invalid");
+                $("#error_delivery_zip").show();
+                return false;
+            } else {
+                $("#delivery_zip").removeClass("is-invalid");
+                $("#error_delivery_zip").hide();
+            }
+            if ($("#delivery_country").val() == "") {
+                $("#delivery_country").addClass("is-invalid");
+                $("#error_delivery_country").show();
+                return false;
+            } else {
+                $("#delivery_country").removeClass("is-invalid");
+                $("#error_delivery_country").hide();
+            }
+
+            if (!$("#delivery_check").is(":checked")) {
+                $("#delivery_check").addClass("is-invalid");
+                $("#invalid_delivery_check").show();
+                return false;
+            } else {
+                $("#delivery_check").removeClass("is-invalid");
+                $("#invalid_delivery_check").hide();
+            }
+
+            $("#delivery_form").submit();
+        }
 
         function validate() {
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

@@ -15,6 +15,39 @@
                 </button>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control">
+                        <option value="19-25 Aug">19 - 25 Aug</option>
+                    </select>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">Mon 19 <span class="float-right">0:00</span></li>
+                    <li class="list-group-item">Tue 20 <span class="float-right">0:00</span></li>
+                    <li class="list-group-item">Wed 21 <span class="float-right">0:00</span></li>
+                    <li class="list-group-item">Thu 22 <span class="float-right">0:00</span></li>
+                    <li class="list-group-item">Fri 23 <span class="float-right">0:00</span></li>
+                    <li class="list-group-item">Sat 24 <span class="float-right">0:00</span></li>
+                    <li class="list-group-item">Sun 25 <span class="float-right">0:00</span></li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        Monday, 19 August 2024 0:00
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <p class="text-center">You have no time entries</p>
+                        <p class="text-center">Add a time entry from the New time entry button</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -79,7 +112,8 @@
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
                         aria-label="Close">
-                        <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                        <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span
+                                class="path2"></span></i>
                     </div>
                     <!--end::Close-->
                 </div>

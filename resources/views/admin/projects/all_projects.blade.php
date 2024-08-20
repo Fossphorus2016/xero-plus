@@ -196,12 +196,38 @@
                 </div>
 
                 <div class="modal-body">
-                    <p>Modal body text goes here.</p>
+                    <form action="" id="time_form">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="project" class="form-label">Project</label>
+                            <input type="text" class="form-control" id="project">
+                            <label for="" id="error_project" class="text-danger fw-bold"
+                                style="display: none">Project is
+                                required</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="task" class="form-label">Task</label>
+                            <input type="text" class="form-control" id="task" disabled>
+                            <label for="" id="error_task" class="text-danger fw-bold"
+                                style="display: none">Task
+                                is
+                                required</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description(optional)</label>
+                            <input type="text" class="form-control" id="description">
+                            <label for="" id="error_description" class="text-danger fw-bold"
+                                style="display: none">Description is
+                                required</label>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+
+                    <button type="button" class="btn btn-primary" onclick="time_validate()"> Save </button>
                 </div>
             </div>
         </div>
@@ -389,7 +415,34 @@
             }
         });
 
+        function time_validate() {
+            if ($("#project").val() == "") {
+                $("#project").addClass("is-invalid");
+                $("#error_project").show();
+                return false;
+            } else {
+                $("#project").removeClass("is-invalid");
+                $("#error_project").hide();
+            }
+            if ($("#task").val() == "") {
+                $("#task").addClass("is-invalid");
+                $("#error_task").show();
+                return false;
+            } else {
+                $("#task").removeClass("is-invalid");
+                $("#error_task").hide();
+            }
+            if ($("#description").val() == "") {
+                $("#description").addClass("is-invalid");
+                $("#error_description").show();
+                return false;
+            } else {
+                $("#description").removeClass("is-invalid");
+                $("#error_description").hide();
+            }
 
+            $("#time_form").submit();
+        }
 
         function draft_Validate() {
             if ($("#draft_contact").val() == "") {

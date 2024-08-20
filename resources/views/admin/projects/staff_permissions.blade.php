@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <span class="h6 mb-0">People who can use Projects</span>
-                <button type="button" class="btn btn-success">Invite staff</button>
+                <a href="{{route('invite.user')}}" class="btn btn-success" target="_blank">Invite staff</a>
             </div>
             <div class="card-body">
                 <div class="d-flex align-items-center">

@@ -13,6 +13,10 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
+    public function invite(){
+        return view('admin.invite_user');
+    }
+
     public function get_settings()
     {
         $setup = SetupForm::first();
@@ -35,7 +39,7 @@ class AdminController extends Controller
             'input_name_5' => $request->input('input_name_5'),
         ];
 
-       
+
         SetupForm::where('id', $request->page_id)->update([
             'fields' => json_encode($formData),
         ]);
