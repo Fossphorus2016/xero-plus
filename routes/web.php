@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountContoller;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BusinessContoller;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectContoller;
 use Illuminate\Support\Facades\Auth;
@@ -58,5 +59,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/sales/tax/report', [AccountContoller::class, 'sales_tax'])->name('sales.tax');
     Route::get('/admin/chart', [AccountContoller::class, 'chart_of_account'])->name('chart.of.account');
     Route::get('/admin/fixed-assets', [AccountContoller::class, 'fixed_asset'])->name('fixed.asset');
+
+    // Business
+    Route::get('/admin/quotes', [BusinessContoller::class, 'quotes'])->name('quotes');
 
 });

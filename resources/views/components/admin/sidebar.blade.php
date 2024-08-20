@@ -25,7 +25,7 @@
                         <span class="menu-title text-white">Dashboard</span>
                     </a>
                 </div>
-                <div class="menu-item">
+                {{-- <div class="menu-item">
                     <a class="menu-link gap-3 {{ Route::is('settings') ? 'active' : '' }}"
                         href="{{ route('settings') }}">
                         <span class="menu-bullet">
@@ -33,7 +33,7 @@
                         </span>
                         <span class="menu-title text-white">Settings</span>
                     </a>
-                </div>
+                </div> --}}
 
 
                 <div data-kt-menu-trigger="click"
