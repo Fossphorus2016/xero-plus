@@ -25,7 +25,6 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::get('/admin/settings', [AdminController::class, 'get_settings'])->name('settings');
 
     Route::post('/form/store', [AdminController::class, 'store'])->name('form.store');
 
@@ -61,6 +60,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/fixed-assets', [AccountContoller::class, 'fixed_asset'])->name('fixed.asset');
 
     // Business
+    Route::get('/admin/invoice', [BusinessContoller::class, 'get_invoice'])->name('invoice');
+    Route::get('/admin/payments', [BusinessContoller::class, 'get_payments'])->name('payments');
+
     Route::get('/admin/quotes', [BusinessContoller::class, 'quotes'])->name('quotes');
 
 });

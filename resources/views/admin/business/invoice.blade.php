@@ -9,7 +9,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8 card shadow p-5 my-5">
-            <form method="POST" id="form1" action="{{ route('form.store') }}">
+            <form method="POST" id="firstForm" action="{{ route('form.store') }}">
                 @csrf
                 <input type="hidden" name="page_id" value="{{ $setup->id }}">
 
@@ -147,7 +147,7 @@
                     </div>
                 @endforeach
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
             </form>
         </div>
 
@@ -160,7 +160,7 @@
     <div class="container my-5">
         <div class="row justify-content-center ">
             <div class="col-md-12 card shadow p-5">
-                <form action="" id="form2" method="POST" class="formValidation">
+                <form action="" id="secondForm" method="POST" class="formValidation">
                     @csrf
                     <div class="row" id="dynamic_fields">
 
@@ -409,9 +409,51 @@
 
 
     <script>
-        
+        document.getElementById('submit-btn').addEventListener('click', function(event) {
+            event.preventDefault();
 
+            const firstForm = document.getElementById('firstForm');
+            const secondForm = document.getElementById('secondForm');
 
+            // Clear existing dynamic fields
+            const dynamicFields = secondForm.querySelectorAll('.dynamic-field-group');
+            dynamicFields.forEach(field => field.remove());
+
+            // Loop through each select and input in the first form
+            for (let i = 1; i <= 5; i++) {
+                const inputTypeElement = firstForm.querySelector(`#input_type_${i}`);
+                const inputNameElement = firstForm.querySelector(`#input_name_${i}`);
+
+                if (inputTypeElement && inputNameElement) { // Ensure elements exist
+                    const inputType = inputTypeElement.value;
+                    const inputName = inputNameElement.value;
+
+                    if (inputType && inputName) {
+                        // Create a div to group label and input
+                        const fieldGroup = document.createElement('div');
+                        fieldGroup.classList.add('dynamic-field-group', 'mb-3');
+
+                        // Create and append the label
+                        const newLabel = document.createElement('label');
+                        newLabel.textContent = inputName;
+                        newLabel.classList.add('form-label');
+                        fieldGroup.appendChild(newLabel);
+
+                        // Create and append the new field
+                        const newField = document.createElement('input');
+                        newField.type = inputType;
+                        newField.name = inputName;
+                        newField.classList.add('form-control', 'dynamic-field');
+                        fieldGroup.appendChild(newField);
+
+                        // Append the field group to the second form
+                        secondForm.appendChild(fieldGroup);
+                    }
+                } else {
+                    console.error(`Element not found for index ${i}`);
+                }
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', function() {
             const fieldMapping = {

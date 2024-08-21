@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="" id="time_form">
+                    <form action="" id="new_time_form">
                         @csrf
                         <div class="mb-3">
                             <label for="project" class="form-label">Project</label>
@@ -189,7 +189,8 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick="validate_new_Time()">Save
+                        changes</button>
                 </div>
             </div>
         </div>
@@ -236,6 +237,27 @@
 
 
         function validate_Time() {
+            if ($("#project").val() == "") {
+                $("#project").addClass("is-invalid");
+                $("#error_project").show();
+                return false;
+            } else {
+                $("#project").removeClass("is-invalid");
+                $("#error_project").hide();
+            }
+            if ($("#task").val() == "") {
+                $("#task").addClass("is-invalid");
+                $("#error_task").show();
+                return false;
+            } else {
+                $("#task").removeClass("is-invalid");
+                $("#error_task").hide();
+            }
+
+            $("#time_form").submit();
+        }
+
+        function validate_new_Time() {
             let isValid = true;
 
             if ($("#new_project").val() == "") {
@@ -298,12 +320,12 @@
                     $("#end_time").removeClass("is-invalid");
                 }
             } else {
-                alert("Please select either Duration or Start & End.");
+
                 isValid = false;
             }
 
             if (isValid) {
-                $("#time_form").submit();
+                $("#new_time_form").submit();
             }
         }
     </script>

@@ -17,11 +17,7 @@ class AdminController extends Controller
         return view('admin.invite_user');
     }
 
-    public function get_settings()
-    {
-        $setup = SetupForm::first();
-        return view('admin.setting', ['setup' => $setup]);
-    }
+    
 
 
     public function store(Request $request)
