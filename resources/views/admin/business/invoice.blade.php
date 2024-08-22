@@ -166,7 +166,7 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-2">
                             <div class="mb-3">
                                 <label for="to" class="form-label">To</label>
                                 <input type="text" name="to" class="form-control" id="to">
@@ -174,48 +174,49 @@
                         </div>
 
 
-                        <div class="col-3" id="invoice_number_field">
+                        <div class="col-2" id="invoice_number_field">
                             <div class="mb-3">
                                 <label for="invoice_number" class="form-label">Invoice number</label>
                                 <input type="number" name="invoice_number" class="form-control"
                                     id="invoice_number">
                             </div>
                         </div>
-                        <div class="col-3" id="issue_date_field">
+                        <div class="col-2" id="issue_date_field">
                             <div class="mb-3">
                                 <label for="issue_date" class="form-label">Issue date</label>
                                 <input type="date" name="issue_date" class="form-control" id="issue_date">
                             </div>
                         </div>
-                        <div class="col-3" id="due_date_field">
+                        <div class="col-2" id="due_date_field">
                             <div class="mb-3">
                                 <label for="due_date" class="form-label">Due date</label>
                                 <input type="date" name="due_date" class="form-control" id="due_date">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-3" id="reference_field">
+                        <div class="col-2" id="reference_field">
                             <div class="mb-3">
                                 <label for="reference" class="form-label">Reference</label>
                                 <input type="text" name="reference" class="form-control" id="reference">
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <div class="mb-3" id="online_payments_field">
                                 <label for="online_payments" class="form-label">Online payments</label>
                                 <input type="text" name="online_payments" class="form-control"
                                     id="online_payments">
                             </div>
                         </div>
-                        <div class="col-3">
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-2">
                             <div class="mb-3" id="currency_field">
                                 <label for="currency" class="form-label">Currency</label>
                                 <input type="text" name="currency" class="form-control" id="currency">
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <div class="mb-3">
                                 <label for="amounts_are" class="form-label">Amounts are</label>
                                 <select class="form-select" id="amounts_are">
@@ -348,20 +349,19 @@
                             </td>
                             <td>
                                 <div class="form-check form-switch mb-2">
-                                    <input class="form-check-input" type="checkbox" id="show_hide_discount" checked>
+                                    <input class="form-check-input" type="checkbox" id="show_hide_discount">
                                     <label class="form-check-label" for="">Discount</label>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-check form-switch mb-2">
-                                    <input class="form-check-input" type="checkbox" id="show_hide_tax_amount"
-                                        checked>
+                                    <input class="form-check-input" type="checkbox" id="show_hide_tax_amount">
                                     <label class="form-check-label" for="">Tax amount</label>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-check form-switch mb-2">
-                                    <input class="form-check-input" type="checkbox" id="show_hide_project" checked>
+                                    <input class="form-check-input" type="checkbox" id="show_hide_project">
                                     <label class="form-check-label" for="">Project</label>
                                 </div>
                             </td>
@@ -371,7 +371,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveChangesButton">Save changes</button>
+                    <button type="submit" class="btn btn-primary" id="saveChangesButton">Save changes</button>
                 </div>
             </div>
         </div>
@@ -409,6 +409,50 @@
 
 
     <script>
+        // Function to save the state of checkboxes in localStorage
+        function saveCheckboxStates() {
+            const checkboxes = document.querySelectorAll('.form-check-input');
+
+            checkboxes.forEach(checkbox => {
+                localStorage.setItem(checkbox.id, checkbox.checked);
+            });
+
+            // Close the modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
+            modal.hide();
+        }
+
+        // Function to apply the saved checkbox states and hide/show fields accordingly
+        function applyCheckboxStates() {
+            const checkboxes = document.querySelectorAll('.form-check-input');
+
+            checkboxes.forEach(checkbox => {
+                const isChecked = localStorage.getItem(checkbox.id) === 'true';
+                checkbox.checked = isChecked;
+
+                const relatedDiv = document.getElementById(checkbox.id.replace('show_hide_', '') + '_field');
+                if (relatedDiv) {
+                    relatedDiv.style.display = isChecked ? 'block' : 'none';
+                }
+            });
+        }
+
+        // Event listener for the "Save changes" button
+        document.getElementById('saveChangesButton').addEventListener('click', saveCheckboxStates);
+
+        // Apply saved states on page load
+        window.addEventListener('load', applyCheckboxStates);
+
+        // Optional: Apply toggle visibility when checkboxes are changed (for real-time preview)
+        document.querySelectorAll('.form-check-input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const relatedDiv = document.getElementById(this.id.replace('show_hide_', '') + '_field');
+                if (relatedDiv) {
+                    relatedDiv.style.display = this.checked ? 'block' : 'none';
+                }
+            });
+        });
+
         document.getElementById('submit-btn').addEventListener('click', function(event) {
             event.preventDefault();
 
@@ -455,115 +499,40 @@
             }
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const fieldMapping = {
-                'show_hide_reference': 'reference_field',
-                'show_hide_invoice_number': 'invoice_number_field',
-                'show_hide_issue_date': 'issue_date_field',
-                'show_hide_due_date': 'due_date_field',
-                'show_hide_item': 'item_field',
-                'show_hide_quantity': 'qty_field',
-                'show_hide_price': 'price_field',
-                'show_hide_discount': 'discount_field',
-                'show_hide_tax_amount': 'tax_amount_field',
-                'show_hide_project': 'project_field',
-            };
+        // Function to toggle visibility of elements based on checkbox status
+        function toggleVisibility(checkboxId, divId) {
+            const checkbox = document.getElementById(checkboxId);
+            const div = document.getElementById(divId);
 
-            const headerMapping = {
-                'show_hide_item': '.item-col',
-                'show_hide_quantity': '.qty-col',
-                'show_hide_price': '.price-col',
-                'show_hide_discount': '.discount-col',
-                'show_hide_tax_amount': '.tax-amount-col',
-                'show_hide_project': '.project-col',
-            };
-
-            // Load and apply saved states
-            function loadSavedStates() {
-                Object.keys(fieldMapping).forEach(toggleId => {
-                    const savedState = localStorage.getItem(toggleId);
-                    if (savedState !== null) {
-                        const toggleElement = document.getElementById(toggleId);
-                        const fieldElement = document.getElementById(fieldMapping[toggleId]);
-
-                        if (toggleElement && fieldElement) {
-                            const isChecked = JSON.parse(savedState);
-                            toggleElement.checked = isChecked;
-                            fieldElement.style.display = isChecked ? '' : 'none';
-
-                            // Apply header and column visibility based on saved state
-                            const columnClass = headerMapping[toggleId];
-                            const headers = document.querySelectorAll(`th${columnClass}`);
-                            const columns = document.querySelectorAll(`td${columnClass}`);
-
-                            headers.forEach(header => {
-                                header.style.display = isChecked ? '' : 'none';
-                            });
-                            columns.forEach(column => {
-                                column.style.display = isChecked ? '' : 'none';
-                            });
-                        }
-                    }
-                });
+            if (checkbox.checked) {
+                div.style.display = 'block';
+            } else {
+                div.style.display = 'none';
             }
+        }
 
-            // Save the state of the toggle in local storage
-            function saveState(toggleId) {
-                const toggleElement = document.getElementById(toggleId);
-                if (toggleElement) {
-                    localStorage.setItem(toggleId, JSON.stringify(toggleElement.checked));
-                }
-            }
-
-            // Toggle table columns and headers visibility
-            function toggleTableColumns() {
-                Object.keys(headerMapping).forEach(checkboxId => {
-                    const checkbox = document.getElementById(checkboxId);
-                    const columnClass = headerMapping[checkboxId];
-                    const headers = document.querySelectorAll(`th${columnClass}`);
-                    const columns = document.querySelectorAll(`td${columnClass}`);
-
-                    if (checkbox) {
-                        // Toggle table column visibility
-                        columns.forEach(column => {
-                            column.style.display = checkbox.checked ? '' : 'none';
-                        });
-                        // Toggle table header visibility
-                        headers.forEach(header => {
-                            header.style.display = checkbox.checked ? '' : 'none';
-                        });
-                    }
-                });
-            }
-
-            // Initialize fields and headers on page load
-            loadSavedStates();
-
-            Object.keys(fieldMapping).forEach(toggleId => {
-                const toggleElement = document.getElementById(toggleId);
-                const fieldElement = document.getElementById(fieldMapping[toggleId]);
-
-                if (toggleElement && fieldElement) {
-                    toggleElement.addEventListener('change', function() {
-                        fieldElement.style.display = toggleElement.checked ? '' : 'none';
-                        saveState(toggleId); // Save state on change
-                        toggleTableColumns(); // Update column and header visibility
-                    });
-                }
-            });
-
-            // Save changes button to apply modal selections
-            document.getElementById('saveChangesButton').addEventListener('click', function() {
-                toggleTableColumns(); // Apply column and header visibility changes
-                const modal = bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
-                modal.hide();
-            });
-
-            // Initialize table columns and headers on modal show
-            $('#exampleModal').on('show.bs.modal', function() {
-                toggleTableColumns();
-            });
+        // Event listeners for each checkbox
+        document.getElementById('show_hide_invoice_number').addEventListener('change', function() {
+            toggleVisibility('show_hide_invoice_number', 'invoice_number_field');
         });
+
+        document.getElementById('show_hide_issue_date').addEventListener('change', function() {
+            toggleVisibility('show_hide_issue_date', 'issue_date_field');
+        });
+
+        document.getElementById('show_hide_due_date').addEventListener('change', function() {
+            toggleVisibility('show_hide_due_date', 'due_date_field');
+        });
+
+        document.getElementById('show_hide_reference').addEventListener('change', function() {
+            toggleVisibility('show_hide_reference', 'reference_field');
+        });
+
+        // Initial call to set the correct visibility based on the checkbox status
+        toggleVisibility('show_hide_invoice_number', 'invoice_number_field');
+        toggleVisibility('show_hide_issue_date', 'issue_date_field');
+        toggleVisibility('show_hide_due_date', 'due_date_field');
+        toggleVisibility('show_hide_reference', 'reference_field');
 
         $(document).ready(function() {
             var defaultLine = 1; // Set the number of default rows you want
