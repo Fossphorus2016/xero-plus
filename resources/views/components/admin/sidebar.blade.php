@@ -245,8 +245,8 @@
                 </div>
 
                 <div data-kt-menu-trigger="click"
-                    class="menu-item menu-accordion {{ Route::is('invoice', 'payments', 'quotes') ? 'hover show' : '' }}">
-                    <span class="menu-link {{ Route::is() ? 'active' : 'invoice', 'payments', 'quotes' }}">
+                    class="menu-item menu-accordion {{ Route::is('invoice', 'payments', 'quotes','product') ? 'hover show' : '' }}">
+                    <span class="menu-link {{ Route::is() ? 'active' : 'invoice', 'payments', 'quotes', 'product' }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
                             <i class="bi bi-person-square fs-2"></i>
@@ -280,6 +280,14 @@
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title {{ Route::is('quotes') ? 'text-dark' : '' }}">Quotes</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('product') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title {{ Route::is('product') ? 'text-dark' : '' }}">Product</span>
                             </a>
                         </div>
 

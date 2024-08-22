@@ -151,7 +151,6 @@
                                 </tr>
                             </thead>
                             <tbody class="invoiceTbody">
-
                             </tbody>
                         </table>
                     </div>
@@ -383,7 +382,7 @@
                     <div id="disc_div"><td><input type="number" class="form-control disc-input" name="disc[]" autocomplete="off"></td></div>
                     <td><input type="text" class="form-control account-input" name="account[]" autocomplete="off"></td>
                     <td><input type="number" class="form-control taxrate-input" name="taxrate[]" autocomplete="off"></td>
-                    <td><input type="number" disabled class="form-control amount" name="amount[]" autocomplete="off"></td>
+                    <td><input type="number"  class="form-control amount" name="amount[]" autocomplete="off"></td>
                     <td><button type="button" class="btn btn-danger delete-row"><i class="bi bi-trash3"></i></button></td>
                 </tr>`;
             }
@@ -429,28 +428,7 @@
 
             setUpRowEventHandlers();
 
-            // function calculateTotal() {
-            //     $('.invoiceTbody tr').each(function() {
-            //         var price = $(this).find('.price-input').val().trim();
-            //         var qty = $(this).find('.qty-input').val().trim();
-            //         var disc = $(this).find('.disc-input').val().trim();
-            //         var totalRow = $(this).find('.amount');
-
-            //         if (price && qty) {
-            //             let amount = parseFloat(price) * parseInt(qty);
-            //             if (disc) {
-            //                 amount -= (amount * parseFloat(disc) / 100);
-            //             }
-            //             totalRow.val(amount.toFixed(2));
-            //         } else {
-            //             totalRow.val('');
-            //         }
-            //     });
-            // }
-
-            // $(document).on('keyup', '.price-input, .qty-input, .disc-input', function() {
-            //     calculateTotal();
-            // });
+          
 
             function calculateTotal() {
                 let subTotal = 0;
@@ -495,6 +473,9 @@
 
         });
     </script>
+
+
+
 
 
 

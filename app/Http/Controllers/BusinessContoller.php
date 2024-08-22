@@ -23,4 +23,9 @@ class BusinessContoller extends Controller
     {
         return view('admin.business.quotes');
     }
+
+    public function product()
+    {
+        return view('admin.business.product');
+    }
 }

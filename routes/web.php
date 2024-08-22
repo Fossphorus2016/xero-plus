@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/invoice', [BusinessContoller::class, 'get_invoice'])->name('invoice');
     Route::get('/admin/payments', [BusinessContoller::class, 'get_payments'])->name('payments');
 
+    Route::get('/admin/add-product', [BusinessContoller::class, 'product'])->name('product');
     Route::get('/admin/quotes', [BusinessContoller::class, 'quotes'])->name('quotes');
 
 });
